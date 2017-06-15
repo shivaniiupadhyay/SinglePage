@@ -1,10 +1,28 @@
  body {
-  background-color: #0be5a7;
+  background-color: #88e091;
   padding: 20px;
   margin: 0;
+ 
 }
-h1, h2, p, ul, li {
+ h2, p, ul, li {
   font-family: Helvetica, Arial, sans-serif;
+}
+h1 {
+
+font: bold italic 3em/1em "Times New Roman", "MS Serif", "New York", serif;
+
+background: black;
+
+padding: 20px;
+
+text-align: center;
+
+margin: 100;
+
+margin-top: 50px;
+
+color: white;
+
 }
 ul.header li {
   display: inline;
