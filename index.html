@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://npmcdn.com/react-router@3.0.2/umd/ReactRouter.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  
+</head>
+  
+<body>
+  
+  <div id="container">
+  
+  </div>
+  
+  <script type="text/babel">
+	var { Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      hashHistory,
+      Link } = ReactRouter;
+    var destination = document.querySelector("#container");
+	
+	
+	var Who = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>HELLO</h2>
+		  <p> Simply hello from Shivani! </p>
+        </div>
+			);
+    }
+	});
+	
+	var Where = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>My mail ID</h2>
+          <p>shivaniiupadhyay@gmail.com</p>
+        </div>
+      );
+    }
+});
+ 
+var What = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>Project</h2>
+          <p>Technologies used: </p>
+          <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>React</li>
+            <li>ReactDOM</li>
+            <li>ReactRouter</li>
+          </ol>
+        </div>
+      );
+    }
+});
+	
+	var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1>A simple web page made using HTML and CSS integrated with React!</h1>
+        <ul className="header">
+           <li><Link to="/">WHO</Link></li>
+          <li><Link to="/what">WHAT</Link></li>
+          <li><Link to="/where">WHERE</Link></li>
+        </ul>
+        <div className="content">
+          {this.props.children}
+        </div>
+      </div>
+    )
+  }
+});
+  
+ReactDOM.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+	<IndexRoute component={Who}/>
+	<Route path="What" component={What} />
+      <Route path="Where" component={Where} />
+    </Route>
+  </Router>,
+  destination
+);
+  </script>
+</body>
+  
+</html>
